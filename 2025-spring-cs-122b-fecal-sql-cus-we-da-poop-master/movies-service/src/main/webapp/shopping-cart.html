@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/shopping-cart.css">
+
+    <title>Shopping Cart</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="movies.html"><img src="images/logo.png" alt="Logo" class="nav-logo"></a>
+        <ul>
+            <li><a href="movies.html"> MOVIES </a></li>
+            <li><a class="nav-link" href="shopping-cart.html">CHECKOUT</a></li>
+            <li><button id="logout-link">LOGOUT</button></li>
+        </ul>
+    </nav>
+</header>
+
+<h1>Shopping Cart</h1>
+
+<table id="cart_table" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price Per Item</th>
+        <th>Subtotal</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="cart_table_body"></tbody>
+</table>
+
+<div class="total-price">
+    <h4>Total Price: $<span id="total_price">0.00</span></h4>
+</div>
+
+<div class="payment-button mt-3">
+    <a href="payment.html" class="btn btn-primary">Proceed to Payment</a>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script type="module" src="js/shopping-cart.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

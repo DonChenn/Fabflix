@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="css/shopping-cart.css">
+    <style>
+        .confirmation-container {
+            text-align: center;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 700px;
+        }
+        .confirmation-container h1 {
+            color: #28a745;
+        }
+        .confirmation-container p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .order-details-section {
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .order-details-section h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        #order-summary-table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        #order-summary-table th, #order-summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        #order-summary-table th {
+            background-color: #f2f2f2;
+        }
+        .total-confirmation-price {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top:15px;
+        }
+        .confirmation-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .confirmation-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="movies.html"><img src="images/logo.png" alt="Logo" class="nav-logo"></a>
+        <ul>
+            <li><a href="movies.html"> MOVIES </a></li>
+            <li><a class="nav-link" href="shopping-cart.html">CHECKOUT</a></li>
+            <li><button id="logout-link">LOGOUT</button></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="confirmation-container">
+    <h1>Order Confirmed!</h1>
+    <p>Thank you for your purchase. Your order has been placed successfully.</p>
+
+    <div class="order-details-section">
+        <h3>Your Order Details</h3>
+        <p><strong>Sale ID(s):</strong> <span id="sale-ids-display">Loading...</span></p>
+        <table id="order-summary-table">
+            <thead>
+            <tr>
+                <th>Movie Title</th>
+                <th>Quantity</th>
+                <th>Price per Item</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+            <tbody id="order-items-tbody">
+            </tbody>
+        </table>
+        <p class="total-confirmation-price"><strong>Total Price:</strong> $<span id="total-price-display">Loading...</span></p>
+    </div>
+
+    <a href="movies.html">Continue Shopping</a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/confirmation.js"></script>
+
+</body>
+</html>

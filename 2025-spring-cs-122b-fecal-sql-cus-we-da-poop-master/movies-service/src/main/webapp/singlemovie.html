@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="css/singlepage.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<header>
+    <nav>
+        <a href="movies.html"><img src="images/logo.png" alt="Logo" class="nav-logo"></a>
+        <ul>
+            <li><a href="movies.html"> MOVIES </a></li>
+            <li><a class="nav-link" href="shopping-cart.html">CHECKOUT</a></li>
+            <li><button id="logout-link">LOGOUT</button></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="content-wrapper">
+    <a id="back-to-list-link" href="#">&larr; Back to Movie List</a>
+    <div id="details-wrapper">
+        <div id="details">
+            <p>Loading movie info...</p>
+        </div>
+    </div>
+</div>
+
+<script type="module" src='js/singlemovie.js'></script>
+<script src="js/logout.js"></script>
+
+</body>
+
+</html>

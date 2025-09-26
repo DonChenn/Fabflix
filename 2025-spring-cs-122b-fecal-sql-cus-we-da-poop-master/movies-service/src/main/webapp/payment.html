@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="css/shopping-cart.css">
+    <style>
+        .payment-form {
+            width: 90%;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .payment-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .payment-form input[type="text"],
+        .payment-form input[type="date"],
+        .payment-form input[type="number"]
+        {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .payment-form button {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .payment-form button:hover {
+            background-color: #218838;
+        }
+        #payment_message {
+            color: red;
+            margin-top: 15px;
+            text-align: center;
+            min-height: 1.2em;
+        }
+        .total-display {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="movies.html"><img src="../../../../src/main/webapp/images/logo.png" alt="Logo" class="nav-logo"></a>
+        <ul>
+            <li><a href="movies.html"> MOVIES </a></li>
+            <li><a class="nav-link" href="shopping-cart.html">CHECKOUT</a></li>
+            <li><button id="logout-link">LOGOUT</button></li>
+        </ul>
+    </nav>
+</header>
+
+<h1>Payment Details</h1>
+
+<div class="payment-form">
+    <div class="total-display">
+        Total Amount: $<span id="total_price">Loading...</span>
+    </div>
+
+    <form id="payment_form">
+        <label for="first_name">First Name on Card:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Last Name on Card:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="cc_number">Credit Card Number:</label>
+        <input type="text" id="cc_number" name="cc_number" required>
+
+        <label for="cc_expiry">Expiration Date:</label>
+        <input type="date" id="cc_expiry" name="cc_expiry" required>
+
+        <button type="submit">Place Order</button>
+    </form>
+    <div id="payment_message"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="module" src="js/payment.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

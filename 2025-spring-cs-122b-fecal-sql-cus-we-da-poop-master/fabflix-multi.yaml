@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fabflix-multi-ingress
+  annotations:
+    # This annotation is crucial for the rewrite to work
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          # Rule 1: Handles all traffic for the movies service
+          - path: /movies(/|$)(.*)
+            # CORRECTED: Use ImplementationSpecific for regex paths
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fabflix-movies-service
+                port:
+                  number: 8080
+
+          # Rule 2: Handles all other traffic for the login service
+          - path: /()(.*)
+            # CORRECTED: Use ImplementationSpecific for regex paths
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fabflix-login-service
+                port:
+                  number: 8080

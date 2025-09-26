@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Movies</title>
+    <link rel="stylesheet" href="css/movies.css">
+    <style>
+        #genre-list, #initial-list {
+            margin-bottom: 30px;
+        }
+        #genre-list a, #initial-list a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="movies.html"> HOME </a></li>
+            <li><a href="movies.html"> MOVIES </a></li>
+            <li><a href="#"> STARS </a></li>
+            <li><button id="logout-link" style="background: none; border: none; color: blue; text-decoration: underline; cursor: pointer;">LOGOUT</button></li>
+        </ul>
+    </nav>
+</header>
+
+<h1>Browse Movies</h1>
+
+<section id="initial-section">
+    <h2>Browse by Title</h2>
+    <div id="initial-list">
+        Loading initials...
+    </div>
+</section>
+
+<section id="genre-section">
+    <h2>Browse by Genre</h2>
+    <div id="genre-list">
+        Loading genres...
+    </div>
+</section>
+
+<script type="module" src="js/browse.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

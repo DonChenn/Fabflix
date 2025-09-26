@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fabflix-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fabflix-login
+  template:
+    metadata:
+      labels:
+        app: fabflix-login
+    spec:
+      containers:
+        - name: fabflix-login
+          # Best practice: Use a specific version tag instead of 'latest'
+          image: donchenn/login-service:v1.0.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_MASTER_HOST
+              value: "13.57.208.2"
+            - name: DB_SLAVE_HOST
+              value: "54.241.223.78"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "moviedb"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: fabflix-db-credentials
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fabflix-db-credentials
+                  key: DB_PASSWORD

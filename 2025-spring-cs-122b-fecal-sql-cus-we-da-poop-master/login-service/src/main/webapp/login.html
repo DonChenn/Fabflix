@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Login Page</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+</head>
+
+<body>
+<div class="login-container">
+    <img src="images/logo.png" alt="Logo" class="login-logo">
+
+    <h1>Customer Login</h1>
+
+    <form id="login-form">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required autocomplete="email" placeholder="customer@example.com">
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required autocomplete="current-password" placeholder="••••••••">
+
+        <div class="g-recaptcha" data-sitekey="6LfllDYrAAAAANNI_zWVOSjed3CwJuYU72PDjSJN"></div>
+        <br> <input type="submit" value="Login">
+    </form>
+
+    <div id="message"></div>
+
+    <p>© 2025 <a href="https://www.linkedin.com/in/donovanachen" target="_blank">Donovan Chen</a> &
+        <a href="https://www.linkedin.com/in/jakelsilverman" target="_blank">Jake Silverman</a></p>
+
+</div>
+<script src="js/login.js"></script>
+
+</body>
+</html>

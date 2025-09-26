@@ -1,0 +1,403 @@
+body {
+    font-family: SansSerif, sans-serif;
+    margin: 0;
+    background-color: hotpink;
+    color: #333;
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+header {
+    background-color: #1a73e8;
+    padding: 10px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.nav-logo {
+    width: 35px;
+    height: auto;
+}
+
+nav #search-form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 15px;
+}
+
+nav #search-form .autocomplete-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+nav #search-form input[type="text"] {
+    padding: 6px 8px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+nav #search-form input#title {
+    width: 100%;
+}
+nav #search-form input#year,
+nav #search-form input#director,
+nav #search-form input#star_name {
+    width: 150px;
+}
+
+nav #search-form button {
+    padding: 6px 10px;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 30px;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: white;
+}
+
+nav #search-form button[type="submit"] {
+    background-color: green;
+}
+nav #search-form button[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+nav #search-form button#toggle-browse-button {
+    background-color: #6c757d;
+}
+nav #search-form button#toggle-browse-button:hover {
+    background-color: #5a6268;
+}
+
+
+nav #search-form .autocomplete-wrapper .autocomplete-suggestions-container {
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1001;
+    box-sizing: border-box;
+    display: none;
+    text-align: left;
+}
+
+nav #search-form .autocomplete-wrapper .autocomplete-suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+}
+nav #search-form .autocomplete-wrapper .autocomplete-suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+nav #search-form .autocomplete-wrapper .autocomplete-suggestion-item.selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 10px;
+    display: inline-block;
+    border-radius: 4px;
+}
+nav a:hover, nav a:focus {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#logout-link {
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logout-link:hover, #logout-link:focus {
+    background-color: darkred;
+    text-decoration: none;
+}
+
+
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+h1 {
+    margin-top: 40px;
+}
+
+#browse-section,
+#sort-controls,
+#movies-table-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#browse-section h3 {
+    margin-bottom: 10px;
+    text-align: left;
+}
+#initial-list, #genre-list {
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+#initial-list div, #genre-list div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#initial-list a, #genre-list a {
+    padding: 5px 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+#initial-list a:hover, #genre-list a:hover,
+#initial-list a:focus, #genre-list a:focus {
+    background-color: #dee2e6;
+    text-decoration: none;
+}
+.selected-browse-link {
+    color: darkred !important;
+    font-weight: bold;
+    text-decoration: underline !important;
+    background-color: #f8d7da !important;
+}
+
+#sort-controls {
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #f9f9f9;
+}
+
+#sort-controls > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#sort-controls label {
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#sort-controls select,
+#sort-controls button {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#sort-controls button#apply-sort-button {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#sort-controls button#apply-sort-button:hover, #sort-controls button#apply-sort-button:focus {
+    background-color: darkgreen;
+}
+
+#results-per-page-control {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+#results-per-page-control label {
+    font-weight: normal;
+}
+#results-per-page-control span {
+    font-size: 14px;
+}
+
+table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #f1f3f5;
+    color: #444;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+td a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+td a:hover, td a:focus {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+#movies-details {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+    font-style: italic;
+    color: #666;
+}
+
+#pagination-controls {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#pagination-controls button {
+    padding: 8px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: #6c757d;
+}
+#pagination-controls button:not(:disabled):hover,
+#pagination-controls button:not(:disabled):focus {
+    background-color: #0056b3;
+}
+
+#page-info {
+    font-weight: bold;
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media (max-width: 992px) {
+    nav #search-form input#year,
+    nav #search-form input#director,
+    nav #search-form input#star_name {
+        display: none;
+    }
+    nav #search-form {
+        margin: 0 10px;
+    }
+    nav ul {
+        gap: 5px;
+    }
+    nav a, #logout-link {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+    nav #search-form {
+        width: 100%;
+        margin: 10px 0;
+        order: 2;
+    }
+    .nav-logo {
+        order: 1;
+        margin-bottom: 10px;
+    }
+    nav ul {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    body {
+        padding-top: 180px;
+    }
+}

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fabflix-deployment
+  labels:
+    app: fabflix
+spec:
+  replicas: 1 # You can increase this later for more instances
+  selector:
+    matchLabels:
+      app: fabflix
+  template:
+    metadata:
+      labels:
+        app: fabflix
+    spec:
+      containers:
+        - name: fabflix-container
+          image: donchenn/fabflix:v1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_MASTER_HOST
+              value: "fabflix-mysql-primary"
+            - name: DB_SLAVE_HOST
+              value: "fabflix-mysql-secondary"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "moviedb"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: fabflix-db-credentials # Name of the Secret you created
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fabflix-db-credentials # Name of the Secret you created
+                  key: DB_PASSWORD

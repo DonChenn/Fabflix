@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fabflix Employee Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/_dashboard.css">
+</head>
+<body>
+
+<nav class="dashboard-nav"> <div class="nav-container"> <div class="nav-brand"> <span>Fabflix Dashboard</span>
+</div>
+  <div class="nav-actions"> <button id="logout-link">LOGOUT</button> </div>
+</div>
+</nav>
+
+<main class="dashboard-main"> <h1 class="dashboard-title">Dashboard Operations</h1> <div class="dashboard-grid"> <section id="add-star-section" class="dashboard-section"> <h2>Add New Star</h2>
+  <form id="add-star-form">
+    <div class="form-group"> <label for="star-name">Star Name <span style="color:red;">*</span></label>
+      <input type="text" id="star-name" name="star_name" required aria-required="true">
+    </div>
+    <div class="form-group"> <label for="birth-year">Birth Year</label>
+      <input type="number" id="birth-year" name="birth_year" min="1800" max="2025" placeholder="Optional (e.g., 1985)">
+    </div>
+    <button type="submit">Add Star</button>
+    <div id="add-star-message" class="message-area"></div> </form>
+</section>
+
+  <section id="add-movie-section" class="dashboard-section"> <h2>Add New Movie (Stored Proc)</h2>
+    <form id="add-movie-form">
+      <div class="form-group"> <label for="movie-title">Movie Title <span style="color:red;">*</span></label>
+        <input type="text" id="movie-title" name="movie_title" required aria-required="true">
+      </div>
+      <div class="form-group"> <label for="movie-year">Year <span style="color:red;">*</span></label>
+        <input type="number" id="movie-year" name="movie_year" required aria-required="true" min="1888" max="2030" placeholder="e.g., 2023">
+      </div>
+      <div class="form-group"> <label for="movie-director">Director <span style="color:red;">*</span></label>
+        <input type="text" id="movie-director" name="movie_director" required aria-required="true">
+      </div>
+      <div class="form-group"> <label for="movie-star-name">Star Name <span style="color:red;">*</span></label>
+        <input type="text" id="movie-star-name" name="movie_star_name" required aria-required="true" placeholder="New or Existing">
+      </div>
+      <div class="form-group"> <label for="movie-genre-name">Genre Name <span style="color:red;">*</span></label>
+        <input type="text" id="movie-genre-name" name="movie_genre_name" required aria-required="true" placeholder="New or Existing">
+      </div>
+      <button type="submit">Add Movie</button>
+      <div id="add-movie-message" class="message-area"></div> </form>
+  </section>
+
+  <section id="metadata-section" class="dashboard-section metadata-full-width"> <h2>Database Metadata</h2> <button id="show-metadata-button">Show/Refresh Metadata</button> <div id="metadata-content"> <p>Click the button to load database metadata.</p>
+  </div>
+    <div id="metadata-message" class="message-area"></div> </section>
+
+</div> </main>
+
+<script src="js/_dashboard.js"></script>
+<script src="js/_dashboard_logout.js"></script>
+
+
+</body>
+</html>

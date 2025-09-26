@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies Page</title>
+    <link rel="stylesheet" href="css/movies.css">
+</head>
+
+<body>
+<header>
+    <nav>
+        <a href="movies.html"><img src="images/logo.png" alt="Logo" class="nav-logo"></a>
+
+        <form id="search-form" class="nav-search-form">
+            <div class="autocomplete-wrapper">
+                <input type="text" id="title" name="title" placeholder="Search by Title..." autocomplete="off">
+                <div id="autocomplete-suggestions" class="autocomplete-suggestions-container"></div>
+            </div>
+            <input type="text" id="year" name="year" placeholder="Year">
+            <input type="text" id="director" name="director" placeholder="Director">
+            <input type="text" id="star_name" name="star_name" placeholder="Star Name">
+            <button id="toggle-browse-button" type="button">Advanced</button>
+            <button type="submit">Search</button>
+        </form>
+
+        <ul>
+            <li><a href="movies.html"> MOVIES </a></li>
+            <li><a class="nav-link" href="shopping-cart.html">CHECKOUT</a></li>
+            <li><button id="logout-link">LOGOUT</button></li>
+        </ul>
+    </nav>
+</header>
+
+<h1>FapFliks</h1>
+
+<section id="browse-section" style="display: none; margin-top: 20px;">
+    <h2>Browse Movies</h2>
+    <div id="initial-list" style="margin-bottom: 20px;">
+        <h3>By Title</h3>
+        <div>Loading title initials...</div>
+    </div>
+    <div id="genre-list">
+        <h3>By Genre</h3>
+        <div>Loading genres...</div>
+    </div>
+</section>
+
+<section id="sort-controls">
+    <div>
+        <label for="sort1-field">Sort by:</label>
+        <select id="sort1-field" name="sort1">
+            <option value="rating">Rating</option>
+            <option value="title">Title</option>
+        </select>
+        <label for="sort1-order"></label><select id="sort1-order" name="order1">
+        <option value="desc">Descending</option>
+        <option value="asc">Ascending</option>
+    </select>
+    </div>
+    <div>
+        <label for="sort2-field">Then by:</label>
+        <select id="sort2-field" name="sort2">
+            <option value="none">None</option>
+            <option value="rating">Rating</option>
+            <option value="title">Title</option>
+        </select>
+        <label for="sort2-order"></label><select id="sort2-order" name="order2">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+    </div>
+    <button id="apply-sort-button" type="button">Apply Sort</button>
+
+    <div id="results-per-page-control">
+        <label for="results-per-page">Show:</label>
+        <select id="results-per-page" name="limit">
+            <option value="10">10</option>
+            <option value="25" selected>25</option> <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <span> results per page</span>
+    </div>
+</section>
+
+
+<table id="movies-table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Director</th>
+        <th>Genres</th>
+        <th>Stars</th>
+        <th>Rating</th>
+        <th>Add to Cart</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<div id="movies-details" style="display: block;"> <p>Loading movies...</p>
+</div>
+
+<div id="pagination-controls">
+    <button id="prev-button" disabled>Previous</button>
+    <span id="page-info">Page 1</span> <button id="next-button" disabled>Next</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/logout.js"></script>
+<script type="module" src="js/movies.js"></script>
+
+</body>
+</html>

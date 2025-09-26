@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fabflix-movies
+spec:
+  # Scaling the movies service to 2 replicas for read-heavy traffic is a good approach
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fabflix-movies
+  template:
+    metadata:
+      labels:
+        app: fabflix-movies
+    spec:
+      containers:
+        - name: fabflix-movies
+          # Best practice: Use a specific version tag instead of 'latest'
+          image: donchenn/movies-service:v1.0.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_MASTER_HOST
+              value: "13.57.208.2"
+            - name: DB_SLAVE_HOST
+              value: "54.241.223.78"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "moviedb"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: fabflix-db-credentials
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fabflix-db-credentials
+                  key: DB_PASSWORD
